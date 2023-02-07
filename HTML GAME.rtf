@@ -1,0 +1,76 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red26\green26\blue26;\red255\green255\blue255;\red16\green60\blue192;
+}
+{\*\expandedcolortbl;;\cssrgb\c13333\c13333\c13333;\cssrgb\c100000\c100000\c100000;\cssrgb\c6667\c33333\c80000;
+}
+\margl1440\margr1440\vieww24520\viewh11460\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs20 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 <!DOCTYPE html>\
+<html>\
+<head>\
+\'a0 \'a0 <script src="{\field{\*\fldinst{HYPERLINK "https://cdn.jsdelivr.net/npm/phaser@3.50.1/dist/phaser.js"}}{\fldrslt \cf4 \ul \ulc4 \strokec4 https://cdn.jsdelivr.net/npm/phaser@3.50.1/dist/phaser.js}}"></script>\
+\'a0 \'a0 <style>\
+\'a0 \'a0 \'a0 \'a0 #gameContainer \{\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 width: 800px;\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 height: 600px;\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 margin: 0 auto;\
+\'a0 \'a0 \'a0 \'a0 \}\
+\'a0 \'a0 </style>\
+</head>\
+<body>\
+\'a0 \'a0 <div id="gameContainer"></div>\
+\'a0 \'a0 <script>\
+\'a0 \'a0 \'a0 \'a0 // initialize the game\
+\'a0 \'a0 \'a0 \'a0 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'gameContainer', \{ preload: preload, create: create, update: update \});\
+\
+\'a0 \'a0 \'a0 \'a0 // preload assets\
+\'a0 \'a0 \'a0 \'a0 function preload() \{\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 game.load.image('background', 'assets/background.jpg');\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 game.load.image('player', 'assets/player.png');\
+\'a0 \'a0 \'a0 \'a0 \}\
+\
+\'a0 \'a0 \'a0 \'a0 // game variables\
+\'a0 \'a0 \'a0 \'a0 var player;\
+\'a0 \'a0 \'a0 \'a0 var timePeriod = 'present';\
+\'a0 \'a0 \'a0 \'a0 var puzzlesSolved = 0;\
+\
+\'a0 \'a0 \'a0 \'a0 // create game objects\
+\'a0 \'a0 \'a0 \'a0 function create() \{\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 game.add.sprite(0, 0, 'background');\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 player = game.add.sprite(game.world.centerX, game.world.centerY, 'player');\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 player.anchor.setTo(0.5, 0.5);\
+\'a0 \'a0 \'a0 \'a0 \}\
+\
+\'a0 \'a0 \'a0 \'a0 // update game logic\
+\'a0 \'a0 \'a0 \'a0 function update() \{\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 if (puzzlesSolved >= 3) \{\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 alert('Congratulations! You have successfully changed the course of history.');\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 game.destroy();\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \}\
+\'a0 \'a0 \'a0 \'a0 \}\
+\
+\'a0 \'a0 \'a0 \'a0 // function to handle time travel\
+\'a0 \'a0 \'a0 \'a0 function timeTravel(period) \{\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 timePeriod = period;\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 switch (period) \{\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 case 'past':\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 // show puzzles and choices related to past\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 break;\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 case 'future':\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 // show puzzles and choices related to future\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \'a0 break;\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 \}\
+\'a0 \'a0 \'a0 \'a0 \}\
+\
+\'a0 \'a0 \'a0 \'a0 // function to handle puzzle solving\
+\'a0 \'a0 \'a0 \'a0 function solvePuzzle(puzzleIndex) \{\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 puzzlesSolved++;\
+\'a0 \'a0 \'a0 \'a0 \'a0 \'a0 // update game state based on puzzleIndex\
+\'a0 \'a0 \'a0 \'a0 \}\
+\'a0 \'a0 </script>\
+</body>\
+</html>}
